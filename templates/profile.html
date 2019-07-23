@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>WalBot Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#deals">Deals</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout {{name}}</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <div class="card">
+            <img src="/static/images/pavlo.jpg" alt="{{name}}" height="300" width="300">
+            <h1>{{name}}</h1>
+            <p class="title">{{email}}</p>
+        </div>
+    </div>
+</div>
+
+<section id="products">
+    <div class="container">
+        <center><h4>Recently Viewed Products at Walgreens Store</h4></center>
+        {% if product_details|length > 0 %}
+            <div class="row">
+                {% for product in product_details %}
+                    <div class="col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">RECENTLY VIEWED</div>
+                            <div class="panel-body"><img src="{{product[2]}}" class="img-responsive"
+                                                         style="width:100%" alt="{{product[0]}}"></div>
+                            <div class="panel-footer"><strong>{{product[0]}} - ${{product[1]}}</strong></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+        <center>
+             <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-footer"><mark>No recently viewed items...</mark></div>
+                        </div>
+                    </div>
+            </div>
+            </center>
+        {% endif %}
+    </div>
+</section>
+<br>
+
+<section id="deals">
+    <div class="container">
+        <center><h4>Deals at your local Walgreens Store!</h4></center>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">WEEKEND DEAL</div>
+                    <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"
+                                                 style="width:100%" alt="Image"></div>
+                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">DOORBUSTER DEAL</div>
+                    <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"
+                                                 style="width:100%" alt="Image"></div>
+                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">BEAUTY DEAL</div>
+                    <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"
+                                                 style="width:100%" alt="Image"></div>
+                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
+
+<footer class="container-fluid text-center">
+    <p>
+        <mark><strong>Get deals directly to your email:</strong></mark>
+    </p>
+    <form class="form-inline">
+        <input type="email" class="form-control" size="50" placeholder="Email Address"><br/><br/>
+        <button type="button" style="width:5%" class="btn btn-danger">Sign Up</button>
+    </form>
+</footer>
+
+</body>
+</html>

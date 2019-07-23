@@ -1,0 +1,23 @@
+{
+ "subject": "productapp/WbaBot/productState",
+ "eventTime": "2019-07-22T20:00:12.0000000",
+ "eventType": "ItemState",
+ "id": 6528,
+ "data": {
+ "price": ".20",
+ "customer": "Srikkanth G",
+ "location": "Aisle 23",
+ "zipcode": "60090",
+ "itemNumber": "prd-123-5675",
+ "storeInfo": "Walgreens Deerfield, IL",
+ "productName": "Godiva Chocolate pack 220",
+ "customerID": "1234",
+ "state": "pickedUp"
+ },
+ "dataVersion": "1.0",
+ "metadataVersion": "1",
+ "topic": "/subscriptions/5b805fbf-77a2-4b0c-bde0-ad52bc59c765/resourceGroups/ProductStateGroup/providers/Microsoft.EventGrid/topics/myTopic",
+ "EventProcessedUtcTime": "2019-07-22T20:08:14.0221834Z",
+ "PartitionId": 0,
+ "EventEnqueuedUtcTime": "2019-07-22T20:00:54.3200000Z"
+ }
